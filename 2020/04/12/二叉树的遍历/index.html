@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -48,21 +48,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/globe.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/globe16x16.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/globe.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/globe16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
 
 
 
@@ -82,27 +82,27 @@
 <meta name="description" content="本篇幅是基于上篇文章二叉搜索树的代码上进行实现的， 因此在下面的代码中就不重复说明了  遍历是数据结构中的常见操作，而在二叉树中，遍历方式可以有很多，根据节点的访问顺序的不同， 二叉树的常见遍历方式有以下4种:  前序遍历 中序遍历 后序遍历 层序遍历  前序遍历规则 若二叉树为空， 则返回空 若二叉树不为空， 则先遍历根节点，然后前序遍历左子树，再前序遍历右子树  图示 代码实现1234567">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二叉树的遍历">
-<meta property="og:url" content="http://prgers.com/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/index.html">
+<meta property="og:url" content="https://prgers.gitee.io/blog/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/index.html">
 <meta property="og:site_name" content="prgers">
 <meta property="og:description" content="本篇幅是基于上篇文章二叉搜索树的代码上进行实现的， 因此在下面的代码中就不重复说明了  遍历是数据结构中的常见操作，而在二叉树中，遍历方式可以有很多，根据节点的访问顺序的不同， 二叉树的常见遍历方式有以下4种:  前序遍历 中序遍历 后序遍历 层序遍历  前序遍历规则 若二叉树为空， 则返回空 若二叉树不为空， 则先遍历根节点，然后前序遍历左子树，再前序遍历右子树  图示 代码实现1234567">
-<meta property="og:image" content="http://prgers.com/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/preorder.png">
-<meta property="og:image" content="http://prgers.com/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/inorder.png">
-<meta property="og:image" content="http://prgers.com/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/postorder.png">
-<meta property="og:image" content="http://prgers.com/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/levelorder.png">
+<meta property="og:image" content="https://prgers.gitee.io/blog/blog/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/preorder.png">
+<meta property="og:image" content="https://prgers.gitee.io/blog/blog/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/inorder.png">
+<meta property="og:image" content="https://prgers.gitee.io/blog/blog/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/postorder.png">
+<meta property="og:image" content="https://prgers.gitee.io/blog/blog/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/levelorder.png">
 <meta property="article:published_time" content="2020-04-12T15:18:23.000Z">
 <meta property="article:modified_time" content="2020-04-14T14:46:06.352Z">
 <meta property="article:author" content="prgers">
 <meta property="article:tag" content="计算机基础">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://prgers.com/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/preorder.png">
+<meta name="twitter:image" content="https://prgers.gitee.io/blog/blog/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/preorder.png">
 
 
 
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '/blog/',
     scheme: 'Pisces',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -125,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="http://prgers.com/2020/04/12/二叉树的遍历/"/>
+  <link rel="canonical" href="https://prgers.gitee.io/blog/2020/04/12/二叉树的遍历/"/>
 
 
 
@@ -159,7 +159,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/blog/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">prgers</span>
         <span class="logo-line-after"><i></i></span>
@@ -187,7 +187,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/blog/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -197,7 +197,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/blog/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -207,7 +207,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/blog/categories/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -217,7 +217,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/blog/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -258,12 +258,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://prgers.com/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/">
+    <link itemprop="mainEntityOfPage" href="https://prgers.gitee.io/blog/blog/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="prgers">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/WechatIMG6.jpeg">
+      <meta itemprop="image" content="/blog/images/WechatIMG6.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -310,7 +310,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Data-Structure/" itemprop="url" rel="index">
+                  <a href="/blog/categories/Data-Structure/" itemprop="url" rel="index">
                     <span itemprop="name">Data Structure</span>
                   </a>
                 </span>
@@ -392,28 +392,28 @@
 <p>若二叉树为空， 则返回空</p>
 <p>若二叉树不为空， 则先遍历根节点，然后前序遍历左子树，再前序遍历右子树</p>
 </blockquote>
-<h4 id="图示"><a href="#图示" class="headerlink" title="图示"></a>图示</h4><p><img src="/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/preorder.png" alt="preorder"></p>
+<h4 id="图示"><a href="#图示" class="headerlink" title="图示"></a>图示</h4><p><img src="/blog/blog/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/preorder.png" alt="preorder"></p>
 <h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 递归写法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preorderTraversal</span><span class="params">(Node&lt;E&gt; node)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (node == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">  System.out.println(node.element);</span><br><span class="line">  preorderTraversal(node.left);</span><br><span class="line">  preorderTraversal(node.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><h4 id="规则-1"><a href="#规则-1" class="headerlink" title="规则"></a>规则</h4><blockquote>
 <p>若二叉树为空， 则返回空</p>
 <p>若二叉树不为空， 则先中序遍历左子树， 然后遍历根节点， 再中序遍历右子树</p>
 </blockquote>
-<h4 id="图示-1"><a href="#图示-1" class="headerlink" title="图示"></a>图示</h4><p><img src="/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/inorder.png" alt="inorder"></p>
+<h4 id="图示-1"><a href="#图示-1" class="headerlink" title="图示"></a>图示</h4><p><img src="/blog/blog/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/inorder.png" alt="inorder"></p>
 <h4 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 递归写法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">inorderTraversal</span><span class="params">(Node&lt;E&gt; node)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (node == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">  preorderTraversal(node.left);</span><br><span class="line">  System.out.println(node.element);</span><br><span class="line">  preorderTraversal(node.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><h4 id="规则-2"><a href="#规则-2" class="headerlink" title="规则"></a>规则</h4><blockquote>
 <p>若二叉树为空， 则返回空</p>
 <p>若二叉树不为空， 则先后序遍历左子树，然后后序遍历右子树，再遍历根节点</p>
 </blockquote>
-<h4 id="图示-2"><a href="#图示-2" class="headerlink" title="图示"></a>图示</h4><p><img src="/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/postorder.png" alt="postorder"></p>
+<h4 id="图示-2"><a href="#图示-2" class="headerlink" title="图示"></a>图示</h4><p><img src="/blog/blog/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/postorder.png" alt="postorder"></p>
 <h4 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 递归写法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postorderTraversal</span><span class="params">(Node&lt;E&gt; node)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (node == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">  preorderTraversal(node.left);</span><br><span class="line">  preorderTraversal(node.right);</span><br><span class="line">  System.out.println(node.element);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="层序遍历"><a href="#层序遍历" class="headerlink" title="层序遍历"></a>层序遍历</h3><h4 id="规则-3"><a href="#规则-3" class="headerlink" title="规则"></a>规则</h4><blockquote>
 <p>若二叉树为空，则返回空</p>
 <p>若二叉树不为空， 则从树的第一层开始遍历， 从上而下， 从左到右依次访问每一个节点</p>
 </blockquote>
-<h4 id="图示-3"><a href="#图示-3" class="headerlink" title="图示"></a>图示</h4><p><img src="/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/levelorder.png" alt="levelorder"></p>
+<h4 id="图示-3"><a href="#图示-3" class="headerlink" title="图示"></a>图示</h4><p><img src="/blog/blog/2020/04/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/levelorder.png" alt="levelorder"></p>
 <h4 id="代码实现-3"><a href="#代码实现-3" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Queue;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">levelOrderTraversal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">  Queue&lt;Node&lt;E&gt;&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">  queue.offer(root);</span><br><span class="line">  <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">    Node&lt;E&gt; node = queue.poll();</span><br><span class="line">    System.out.println(node.element);</span><br><span class="line">    <span class="keyword">if</span> (node.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">      queue.offer(node.left);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (node.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">      queue.offer(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -433,9 +433,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag"># 计算机基础</a>
+            <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag"># 计算机基础</a>
           
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
+            <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
           
         </div>
       
@@ -448,7 +448,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/04/10/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-Binary-Search-Tree/" rel="next" title="二叉搜索树(Binary Search Tree)">
+              <a href="/blog/2020/04/10/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-Binary-Search-Tree/" rel="next" title="二叉搜索树(Binary Search Tree)">
                 <i class="fa fa-chevron-left"></i> 二叉搜索树(Binary Search Tree)
               </a>
             
@@ -523,7 +523,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/images/WechatIMG6.jpeg"
+                src="/blog/images/WechatIMG6.jpeg"
                 alt="prgers" />
             
               <p class="site-author-name" itemprop="name">prgers</p>
@@ -535,7 +535,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/blog/archives/">
               
                   <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
@@ -547,7 +547,7 @@
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
+                <a href="/blog/categories/index.html">
                   <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
@@ -558,7 +558,7 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
+                <a href="/blog/tags/index.html">
                   <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
@@ -726,64 +726,64 @@
 
   
   
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
