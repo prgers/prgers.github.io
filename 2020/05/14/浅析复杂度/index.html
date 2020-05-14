@@ -87,8 +87,9 @@
 <meta property="og:description" content="我们学习数据结构， 很多时候都会提到算法，然而提到算法，算法分好坏，就会说到复杂度，那今天就来简单的看一看这个复杂度。 时间复杂度我们先通过一道经典的算法题展开今天的正题  求第n个斐波那契数 0, 1, 1, 2, 3, 5, 8, 13……..  1234567891011121314151617&#x2F;&#x2F;第一种写法public static int fib1(int n) &amp;#123;  if (">
 <meta property="og:image" content="http://yoursite.com/2020/05/14/%E6%B5%85%E6%9E%90%E5%A4%8D%E6%9D%82%E5%BA%A6/1.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/14/%E6%B5%85%E6%9E%90%E5%A4%8D%E6%9D%82%E5%BA%A6/2.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/14/%E6%B5%85%E6%9E%90%E5%A4%8D%E6%9D%82%E5%BA%A6/3.png">
 <meta property="article:published_time" content="2020-05-14T12:42:08.000Z">
-<meta property="article:modified_time" content="2020-05-14T14:47:54.068Z">
+<meta property="article:modified_time" content="2020-05-14T15:23:46.989Z">
 <meta property="article:author" content="prgers">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
@@ -338,7 +339,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1k
+                  1.2k
                 </span>
               
 
@@ -354,7 +355,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  5
                 </span>
               
             </div>
@@ -467,6 +468,18 @@
 <h3 id="图形化展示复杂度"><a href="#图形化展示复杂度" class="headerlink" title="图形化展示复杂度"></a>图形化展示复杂度</h3><p>借助函数生成工具对比复杂度的大小<a href="https://zh.numberempire.com/graphingcalculator.php" target="_blank" rel="noopener">图形工具</a></p>
 <h4 id="数据规模较小时"><a href="#数据规模较小时" class="headerlink" title="数据规模较小时"></a>数据规模较小时</h4><p><img src="/2020/05/14/%E6%B5%85%E6%9E%90%E5%A4%8D%E6%9D%82%E5%BA%A6/1.png" alt="1"></p>
 <h4 id="数据规模较大时"><a href="#数据规模较大时" class="headerlink" title="数据规模较大时"></a>数据规模较大时</h4><p><img src="/2020/05/14/%E6%B5%85%E6%9E%90%E5%A4%8D%E6%9D%82%E5%BA%A6/2.png" alt="2"></p>
+<h3 id="斐波那契数算法时间复杂度分析"><a href="#斐波那契数算法时间复杂度分析" class="headerlink" title="斐波那契数算法时间复杂度分析"></a>斐波那契数算法时间复杂度分析</h3><p>在了解完了以上内容后， 再回到开篇写的<code>斐波那契数</code>的两种算法，通过大O表示法来分析一下，这两种算法的复杂度</p>
+<h4 id="第一种算法"><a href="#第一种算法" class="headerlink" title="第一种算法"></a>第一种算法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fib1</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> n;</span><br><span class="line">  <span class="keyword">return</span> fib1(n - <span class="number">2</span>) + fib1(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一眼看去，并不能看出什么结果，那么图形来简单的分析一下</p>
+<p><img src="/2020/05/14/%E6%B5%85%E6%9E%90%E5%A4%8D%E6%9D%82%E5%BA%A6/3.png" alt="3"></p>
+<p>通过上图，可以大致的算出其时间复杂度</p>
+<blockquote>
+<p>1 + 2 + 4 + 8 = 2^0 + 2^1 + 2^2 + 2^3 = 2^4 - 1 = 2^(n-1) - 1 = 0.5 * 2^n - 1 </p>
+<p>复杂度为 O(2^n)</p>
+</blockquote>
+<h4 id="第二种算法"><a href="#第二种算法" class="headerlink" title="第二种算法"></a>第二种算法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="comment">//1</span></span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> n;</span><br><span class="line">  <span class="keyword">int</span> first = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> second = <span class="number">1</span>;</span><br><span class="line">  <span class="comment">//1 + 3(n -1)</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    second += first;</span><br><span class="line">    first = second - first;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> second;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//复杂度为 O(n)</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -671,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#时间复杂度"><span class="nav-number">1.</span> <span class="nav-text">时间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何来评判一个算法的好坏"><span class="nav-number">1.1.</span> <span class="nav-text">如何来评判一个算法的好坏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大O表示法-Big-O"><span class="nav-number">1.2.</span> <span class="nav-text">大O表示法(Big O)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的复杂度"><span class="nav-number">1.3.</span> <span class="nav-text">常见的复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图形化展示复杂度"><span class="nav-number">1.4.</span> <span class="nav-text">图形化展示复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据规模较小时"><span class="nav-number">1.4.1.</span> <span class="nav-text">数据规模较小时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据规模较大时"><span class="nav-number">1.4.2.</span> <span class="nav-text">数据规模较大时</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#时间复杂度"><span class="nav-number">1.</span> <span class="nav-text">时间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何来评判一个算法的好坏"><span class="nav-number">1.1.</span> <span class="nav-text">如何来评判一个算法的好坏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大O表示法-Big-O"><span class="nav-number">1.2.</span> <span class="nav-text">大O表示法(Big O)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的复杂度"><span class="nav-number">1.3.</span> <span class="nav-text">常见的复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图形化展示复杂度"><span class="nav-number">1.4.</span> <span class="nav-text">图形化展示复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据规模较小时"><span class="nav-number">1.4.1.</span> <span class="nav-text">数据规模较小时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据规模较大时"><span class="nav-number">1.4.2.</span> <span class="nav-text">数据规模较大时</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#斐波那契数算法时间复杂度分析"><span class="nav-number">1.5.</span> <span class="nav-text">斐波那契数算法时间复杂度分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一种算法"><span class="nav-number">1.5.1.</span> <span class="nav-text">第一种算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二种算法"><span class="nav-number">1.5.2.</span> <span class="nav-text">第二种算法</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
